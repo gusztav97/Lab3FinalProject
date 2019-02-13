@@ -8,9 +8,18 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Random;
 
 public class CryptoLogic extends AppCompatActivity {
 
+    Random rand = new Random();
+
+    private String word;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +35,24 @@ public class CryptoLogic extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        ArrayList<String> secretWords = new ArrayList(Arrays.asList("APPLE", "BANANA", "CHERRY"));
+
+
+        // CREATE AFTER YOUR SUPERCLASSS
+        TextView shuffleTextView = (TextView) findViewById(R.id.scrambleText);
+
+        int n = rand.nextInt(3) + 0;
+
+        word = secretWords.get(n);
+
+        String shuffledWord = "";
+        ArrayList<String> splitWord = new ArrayList(Arrays.asList(word.split("")));
+        Collections.shuffle(splitWord);
+        for (String c : splitWord)
+            shuffledWord += c;
+
+        shuffleTextView.setText(shuffledWord);
     }
 
     @Override
