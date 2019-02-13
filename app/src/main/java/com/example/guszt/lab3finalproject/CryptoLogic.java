@@ -20,6 +20,13 @@ public class CryptoLogic extends AppCompatActivity {
     Random rand = new Random();
 
     private String word;
+    private String letterGuess;
+    private String shuffledWord;
+    private int positionOfWord = 0;
+    private int wordLength;
+    private int incorrectTries = 0;
+    private int correctTries = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,16 +50,58 @@ public class CryptoLogic extends AppCompatActivity {
         TextView shuffleTextView = (TextView) findViewById(R.id.scrambleText);
 
         int n = rand.nextInt(3) + 0;
+        wordLength = 0;
 
         word = secretWords.get(n);
 
-        String shuffledWord = "";
+        shuffledWord = "";
         ArrayList<String> splitWord = new ArrayList(Arrays.asList(word.split("")));
         Collections.shuffle(splitWord);
-        for (String c : splitWord)
+        for (String c : splitWord) {
             shuffledWord += c;
+            wordLength++;
+        }
 
         shuffleTextView.setText(shuffledWord);
+    }
+
+    public void guessButtonClicked(View v){
+        TextView guessTextView = (TextView) findViewById(R.id.editText);
+        TextView letterGuess = (TextView) findViewById(R.id.guessView);
+        String currentAnswer = "";
+
+
+        TextView correctNum = (TextView) findViewById(R.id.correct);
+
+        TextView incorrectNum = (TextView) findViewById(R.id.incorrect);
+
+        char guessChar = guessTextView.getText().toString().charAt(0);
+
+        if(word.charAt(positionOfWord) == guessChar){
+            guessTextView.setText("");
+            correctTries++;
+
+            for (int i = 0; i <= positionOfWord; i++){
+                currentAnswer += word.charAt(i);
+                letterGuess.setText(currentAnswer);
+
+            }
+            positionOfWord++;
+
+
+        }
+        else {
+            guessTextView.setText("");
+            incorrectTries++;
+        }
+            correctNum.setText("Correct Tries: " + Integer.toString(correctTries));
+            incorrectNum.setText("Incorrect Tries: " + Integer.toString(incorrectTries));
+
+
+        if(correctTries == word.length()){
+            guessTextView.setText("Game Over: " + word);
+        }
+
     }
 
     @Override
