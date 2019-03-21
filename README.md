@@ -9,29 +9,25 @@ These instructions will get you a copy of a basic crypto-logic game up and runni
 
 ## Project Description
 
-The pocket calculator has the ability to perform basic arithmetic like addition, subtraction, multiplication, and addition. The project will use the Android Studio Layout Editor and the ConstraintLayout layout manager which will be used to create a simple application that allows and implements the functionality of a basic calculator. The user interface will consist of a five by four grid of Buttons, along with a TextView that will be at the top of the simulator. (If you are familiar with Windows Builder in Java, you should have no problem with adjusting to this). The project interface is viewable in both portrait and landscape views. The project will make use of a single onClick() event handler that will consider every button that was pushed. This project was created for Mobile Application Development in Mr. Jay Snellen's class.
+The crypto-logic game will randomly select a word from the following:
+	* APPLE
+	* BANANA
+	* CHERRY
+	
+The game will then scramble the selected dictionary word. The player will be then challenged to guess what the original word will be. The player will perform this but letter by letter all while making as few incorrect guesses as possible. This project was created for Mobile Application Development in Mr. Jay Snellen's class.
 
 This application will contain the following: 
 
-* Number 1 Button
-* Number 2 Button
-* Number 3 Button
-* Number 4 Button
-* Number 5 Button
-* Number 6 Button
-* Number 7 Button
-* Number 8 Button
-* Number 9 Button
-* Number 0 Button
-* Addition
-* Subtraction
-* Multiplication
-* Division
-* A 'clear all' button
-* A 'sign' button to toggle the value to negative, positive, and vice-versa
-* A 'percent' button which will allow computation of percentages
-* a 'square root' button that allows computation of square root of value given
-* A single TextView at the top of the application
+* Array Lists
+* Strings
+* import java.util.ArrayList;
+* import java.util.Arrays;
+* import java.util.Collections;
+* import android.widget.*; 
+* TextView
+* Buttons
+* Text
+
 
 
 
@@ -81,7 +77,7 @@ In Minimum API level, uses API 22: Android 5.1 (Lollipop)
 
 1. On the top of the tool bar, and go to FILE -> NEW -> Project from Version Control -> Git.
 
-2. Place '[https://github.com/gusztav97/MobDev-Project1Francia](https://github.com/gusztav97/MobDev-Project1Francia)' when the prompt asks for the url.
+2. Place '[https://github.com/gusztav97/Lab3FinalProject](https://github.com/gusztav97/Lab3FinalProject)' when the prompt asks for the url.
 
 3. You will receive the full project which should be ready to go. It will look like this ![this](https://github.com/gusztav97/MobDev-Project1Francia/blob/master/image.png)
 
@@ -95,21 +91,14 @@ will take more than a minute to open.
 
 ## Performance Tests
 
-The following tests should work in the simulator.
+The following tests should work in the simulator for the word "APPLE".
 
-* 1+1 = 2
-* 21.3 - 15.4 = 5.9
-* 500 * 3 = 1500
-* 21 / 4 = 5.25
-* √81 = 9
+* Player enters A = 1 Correct Guess, 0 Incorrect Guess
+* Player enters R = 0 Correct Guess, 1 Incorrect Guess
 
 ## Problems Encountered
 
-I was not able to create chain arithmetic like
-
-5 + 5 + 5 = 15
-
-because I did not use the correct algorithm so I am only able to go as far as performing arithmetic with 2 numbers at the most.
+No problems were encountered in the creation of this application
 
 ## Built With
 
